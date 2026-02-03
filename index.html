@@ -23,20 +23,19 @@
     .container {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       height: 100vh;
-      padding: 2rem;
-      gap: 3rem;
+      padding: 2rem 4rem;
+      gap: 4rem;
     }
 
-    /* LEFT: animation */
+    /* LEFT on desktop: animation */
     .animation-wrapper {
-      flex: 1;
+      flex: 1.2;
       display: flex;
       align-items: center;
-      justify-content: center;
-      max-width: 800px;
-      max-height: 800px;
+      justify-content: flex-start;
+      max-width: 900px;
     }
 
     .animation-wrapper video {
@@ -46,11 +45,11 @@
       object-fit: contain;
     }
 
-    /* RIGHT: text panel */
+    /* RIGHT on desktop: text panel */
     .message-box {
       flex: 1;
       max-width: 560px;
-      padding: 2.75rem;
+      padding: 3rem;
       text-align: center;
 
       background: rgba(255, 255, 255, 0.60);
@@ -64,7 +63,7 @@
     /* Apologies – humorous */
     .apology {
       font-family: "Comic Sans MS", "Segoe Script", "Apple Chancery", cursive;
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       margin-bottom: 0.75rem;
       color: #1e293b;
     }
@@ -73,7 +72,7 @@
     .headline {
       font-size: 2.4rem;
       font-weight: 700;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.6rem;
       color: #0f172a;
     }
 
@@ -88,19 +87,35 @@
       margin: 0.6rem 0;
     }
 
-    /* Responsive: stack on small screens */
+    /* Mobile / tablet: stack, but TEXT FIRST */
     @media (max-width: 900px) {
+      body {
+        overflow: auto;
+      }
+
       .container {
         flex-direction: column;
-        overflow-y: auto;
+        padding: 1.5rem;
+        gap: 1.75rem;
+        align-items: center;
+      }
+
+      /* Swap order: text on top, animation below */
+      .message-box { order: 1; }
+      .animation-wrapper { order: 2; }
+
+      .message-box {
+        max-width: 92vw;
+        padding: 2.25rem;
       }
 
       .animation-wrapper {
-        max-width: 90vw;
+        justify-content: center;
+        max-width: 92vw;
       }
 
-      .message-box {
-        margin-top: 1.5rem;
+      .animation-wrapper video {
+        max-height: 55vh;
       }
     }
   </style>
@@ -108,6 +123,7 @@
 
 <body>
   <div class="container">
+    <!-- Desktop: left | Mobile: below -->
     <div class="animation-wrapper">
       <video autoplay loop muted playsinline>
         <source src="images/Complexity.mp4" type="video/mp4">
@@ -115,11 +131,10 @@
       </video>
     </div>
 
+    <!-- Desktop: right | Mobile: top -->
     <div class="message-box">
       <div class="apology">Apologies!!!</div>
-
       <div class="headline">Maintenance is in progress</div>
-
       <div class="message">
         <p>My sites are temporarily offline while maintenance is performed.</p>
         <p>Please check back shortly.</p>
@@ -128,4 +143,3 @@
   </div>
 </body>
 </html>
-
