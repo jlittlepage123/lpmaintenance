@@ -3,33 +3,37 @@
 <head>
   <meta charset="utf-8">
   <title>Maintenance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
-      text-align: center;
+      color: #0f172a;
     }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(2px);
+    }
+
     .box {
-      max-width: 520px;
-      padding: 2rem;
-    }
-    h1 { font-size: 2rem; margin-bottom: 1rem; }
-    p { line-height: 1.6; opacity: 0.9; }
-  </style>
-</head>
-<body>
-  <div class="box">
-    <h1>Maintenance in Progress</h1>
-    <p>
-      My sites are temporarily offline while I perform maintenance.<br>
-      Please check back shortly.
-    </p>
-  </div>
-</body>
-</html>
+      position: relative;
+      max-width: 560px;
+      padding: 2.75rem;
+      text-align: center;
+
+      background: rgba(255, 255, 255, 0.78);
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0,0
