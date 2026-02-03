@@ -3,8 +3,6 @@ name: maintenance-page-check
 on:
   pull_request:
     branches: [ main ]
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -12,6 +10,7 @@ permissions:
 
 jobs:
   check:
+    name: maintenance-page-check / check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
